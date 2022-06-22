@@ -1,0 +1,274 @@
+name: aeotec-nano-dimmer
+components:
+  - id: main
+    capabilities:
+      - id: switch
+        version: 1
+      - id: switchLevel
+        version: 1
+      - id: powerMeter
+        version: 1
+      - id: energyMeter
+        version: 1
+      - id: refresh
+        version: 1
+    categories:
+      - name: Switch
+preferences:
+  - name: "overheatProtection"
+    title: "Overheat Protection"
+    description: "Turn off after 30 seconds if temperature is over 100 C."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Disabled"
+        1: "Enabled"
+      default: 1
+  - name: "afterPowerLoss"
+    title: "After Power Loss"
+    description: "When power is lost, then restored, the dimmer is..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Same as before loss"
+        1: "Always on"
+        2: "Always off"
+      default: 0
+  - name: "instantUpdates"
+    title: "Instant Updates"
+    description: "Type of report sent to association group 1 when dimmer changes. Used to instantly update dimmer status on gateway"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "None"
+        1: "Hail (outdated, more bandwidth)"
+        2: "Basic (simple on/off)"
+        3: "Multilevel (for dimmers)"
+        4: "Hail with external switch"
+      default: 3
+  - name: "powerUsageReports"
+    title: "Power Usage Reports"
+    description: "Enable the two power usage reports (below)"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Disabled"
+        1: "Enabled"
+      default: 1
+  - name: "powerUsageWatts"
+    title: "Power Usage (Watts)"
+    description: "Send report when power usage (watts) changes more than..."
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 60000
+      default: 1
+  - name: "powerUsagePercentage"
+    title: "Power Usage (%)"
+    description: "Send report when power usage (percentage) changes more than..."
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 100
+      default: 5
+  - name: "timedReport1"
+    title: "Timed Report 1"
+    description: "Which reports need to send in Report group 1"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 255
+      default: 12
+  - name: "timedReport1Schedule"
+    title: "Timed Report 1 Schedule"
+    description: "Delay in seconds between each report"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 2147483647
+      default: 300
+  - name: "timedReport2"
+    title: "Timed Report 2"
+    description: "Which reports need to send in Report group 2"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 255
+      default: 4
+  - name: "timedReport2Schedule"
+    title: "Timed Report 2 Schedule"
+    description: "Delay in seconds between each report"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 2147483647
+      default: 300
+  - name: "timedReport3"
+    title: "Timed Report 3"
+    description: "Which reports need to send in Report group 3"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 255
+      default: 8
+  - name: "timedReport3Schedule"
+    title: "Timed Report 3 Schedule"
+    description: "Delay in seconds between each report"
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 2147483647
+      default: 300
+  - name: "s1SwitchType"
+    title: "S1 Switch Type"
+    description: "External S1 switch type..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Unidentified"
+        1: "2-State Switch"
+        2: "3-Way Switch"
+        3: "Momentary Push Button"
+        4: "Automatic Detection"
+      default: 0
+  - name: "s1SwitchControl"
+    title: "S1 Switch Control"
+    description: "External S1 switch control..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        1: "Dimmer itself"
+        2: "Devices in association group 3"
+        3: "Dimmer itself and devices in association group 3"
+      default: 3
+  - name: "s1SwitchNotification"
+    title: "S1 Switch Notification"
+    description: "External S1 switch sends notification..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Send Nothing"
+        1: "Basic Set CC"
+        2: "Switch Multilevel Set"
+      default: 1
+  - name: "s2SwitchType"
+    title: "S2 Switch Type"
+    description: "External S2 switch type..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Unidentified"
+        1: "2-State Switch"
+        2: "3-Way Switch"
+        3: "Momentary Push Button"
+        4: "Automatic Detection"
+      default: 0
+  - name: "s2SwitchControl"
+    title: "S2 Switch Control"
+    description: "External S2 switch control..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        1: "Dimmer itself"
+        2: "Devices in association group 3"
+        3: "Dimmer itself and devices in association group 3"
+      default: 3
+  - name: "s2SwitchNotification"
+    title: "S2 Switch Notification"
+    description: "External S2 switch sends notification..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Send Nothing"
+        1: "Basic Set CC"
+        2: "Switch Multilevel Set"
+      default: 1
+  - name: "dimmingSpeed"
+    title: "Dimming Speed"
+    description: "Dimming speed in seconds."
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 255
+      default: 3
+  - name: "minimumDimmingValue"
+    title: "Minimum dimming value"
+    description: "Select minimum dimming value. May need to be adjusted for bulbs that are not dimming properly."
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 0
+      maximum: 99
+      default: 0
+  - name: "maximumDimmingValue"
+    title: "Maximum dimming value"
+    description: "Select maximum dimming value. May need to be adjusted for bulbs that are not dimming properly."
+    required: false
+    preferenceType: integer
+    definition:
+      minimum: 1
+      maximum: 99
+      default: 99
+  - name: "dimmingMode"
+    title: "Dimming Mode"
+    description: "Override the dimming mode to be trailing- or leading-edge"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Trailing-eddge (LEDs)"
+        1: "Leading-edge (legacy loads)"
+      default: 0
+  - name: "wiringMode"
+    title: "Wiring Mode"
+    description: "(Get-only) Auto-detected wiring mode"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Unknown"
+        1: "2-wire mode"
+        2: "3-wire mode"
+      default: 0
+  - name: "loadType"
+    title: "Load Type"
+    description: "(Get-only) Auto-detected load type"
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Unknown"
+        1: "Resistive load"
+        2: "Capacitive load"
+        3: "Inductive load"
+      default: 0
+  - name: "automaticLoadDetection"
+    title: "Automatic Load Detection"
+    description: "Automatic dimmer load and wiring detection is..."
+    required: false
+    preferenceType: enumeration
+    definition:
+      options:
+        0: "Disabled"
+        1: "Detected only first time power is restored to dimmer"
+        2: "Always detected when power is restored to dimmer"
+      default: 2

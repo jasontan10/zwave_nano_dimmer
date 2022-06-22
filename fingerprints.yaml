@@ -1,0 +1,6 @@
+zwaveManufacturer:
+  - id: 0086/006F
+    deviceLabel: Aeotec Dimmer Switch
+    manufacturerId: 0x0086
+    productId: 0x006F
+    deviceProfileName: aeotec-nano-dimmer
