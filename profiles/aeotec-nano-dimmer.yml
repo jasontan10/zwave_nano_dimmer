@@ -44,7 +44,7 @@ preferences:
     definition:
       options:
         0: "None"
-        1: "Hail (outdated, more bandwidth)"
+        1: "Hail (outdated)"
         2: "Basic (simple on/off)"
         3: "Multilevel (for dimmers)"
         4: "Hail with external switch"
@@ -153,7 +153,7 @@ preferences:
       options:
         1: "Dimmer itself"
         2: "Devices in association group 3"
-        3: "Dimmer itself and devices in association group 3"
+        3: "Dimmer and association group 3"
       default: 3
   - name: "s1SwitchNotification"
     title: "S1 Switch Notification"
@@ -188,7 +188,7 @@ preferences:
       options:
         1: "Dimmer itself"
         2: "Devices in association group 3"
-        3: "Dimmer itself and devices in association group 3"
+        3: "Dimmer and association group 3"
       default: 3
   - name: "s2SwitchNotification"
     title: "S2 Switch Notification"
@@ -235,7 +235,7 @@ preferences:
     preferenceType: enumeration
     definition:
       options:
-        0: "Trailing-eddge (LEDs)"
+        0: "Trailing-edge (LEDs)"
         1: "Leading-edge (legacy loads)"
       default: 0
   - name: "wiringMode"
@@ -269,6 +269,6 @@ preferences:
     definition:
       options:
         0: "Disabled"
-        1: "Detected only first time power is restored to dimmer"
-        2: "Always detected when power is restored to dimmer"
+        1: "Only first time power is restored"
+        2: "Always when power is restored"
       default: 2
